@@ -1,0 +1,9 @@
+﻿
+@for $i from 1 through 8 {
+    $width: percentage(1 / $i);
+
+    .col-#{$i}
+    {
+        width: $width;
+    }
+}

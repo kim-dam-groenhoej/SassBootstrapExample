@@ -1,0 +1,41 @@
+﻿
+
+@mixin box($borderradius, $borderColor, $backgroundColor, $width) {
+    width: calc(#{$width} - 20px);
+    height: 600px;
+    background: $backgroundColor;
+    border-radius: $borderradius solid $borderColor;
+    -webkit-border-radius: $borderradius solid $borderColor;
+    -moz-border-radius: $borderradius solid $borderColor;
+}
+
+.baseBox {
+    border: 1px solid #000;
+}
+
+.box {
+    @include box(1px, #000, lighten(#ff6a00, 40%), 600px);
+}
+
+#box1 {
+    @extend .baseBox;
+    @include box(1px, #000, blue, 600px);
+}
+
+#box2 {
+    @extend .baseBox;
+    @include box(1px, #000, brown, 600px);
+
+    .newsItems {
+
+        .item + .item h2 {
+            color: #000;
+        }
+
+        > h2 {
+            color: #000;
+            font-size: 20px;
+            background: yellow;
+        }
+    }
+}
