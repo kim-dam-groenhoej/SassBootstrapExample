@@ -26,6 +26,27 @@
                     <li>@Html.ActionLink("About", "About", "Home")</li>
                     <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
                     <li>@Html.ActionLink("Products", "Index", "Product")</li>
+                    <li class="dropdown">
+                        
+                            <a id="dLabel" data-target="#" href="http://example.com" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                Dropdown trigger
+                                <span class="caret"></span>
+                            </a>
+
+                            <ul class="dropdown-menu" aria-labelledby="dLabel">
+                                <li>
+                                    <a href="">test</a>
+                                </li>
+                                <li>
+                                    <a href="">test</a>
+                                </li>
+                                <li>
+                                    <a href="">test</a>
+                                </li>
+                            </ul>
+                       
+
+                    </li>
                 </ul>
             </div>
         </div>
@@ -41,5 +62,10 @@
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
+    
+    <script>
+        $('.dropdown-toggle').dropdown()
+
+    </script>
 </body>
 </html>
