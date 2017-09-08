@@ -1,0 +1,65 @@
+﻿@model Tuple<List<SassBootstrapExample.Models.Product>>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Products</h2>
+
+<div class="products">
+    @foreach (var product in Model.Item1)
+    {
+        <div class="product">
+            <h2>@product.Name</h2>
+            <a href="#" data-id="@("popup" + product.Id.ToString())">Show details</a>
+            
+            <div id="@("popup" + product.Id.ToString())" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModal-label"  style="display: none;">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            <h4 class="modal-title" id="myModal-label">Modal title</h4>
+                        </div>
+                        <div class="modal-body">
+                            <label>
+                                Name
+                            </label>
+                            <span>@product.Name</span>
+                            <br/>
+                            
+                            <label>
+                                Price
+                            </label>
+                            <span>@product.Price</span>
+                            <br/>
+
+                            <label>
+                                Description
+                            </label>
+                            <span>@product.Description</span>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary">Save</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    
+        </div>
+}
+</div>
+
+@section scripts {
+    
+    <script>
+        var $as = $(".product a");
+
+        $as.click(function(e) {
+            var $modal = $("#" + $(this).data("id"));
+            $modal.modal('show');
+
+            e.preventDefault();
+        });
+    </script>
+}
