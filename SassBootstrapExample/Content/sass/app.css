@@ -1,4 +1,7 @@
-﻿.base {
+﻿.dropdown {
+  z-index: 4000; }
+
+.base {
   background: #000; }
 
 .layout {
